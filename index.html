@@ -61,25 +61,27 @@
         padding: 32px 20px 80px;
       }
 
-      /* ── LANG TOGGLE ── */
-      .lang-toggle {
+      /* ── TOOLBAR (LANG + PDF) ── */
+      .toolbar {
         position: fixed;
         top: 20px;
         left: 20px;
         z-index: 100;
+        display: flex;
+        gap: 10px;
       }
-      [dir="ltr"] .lang-toggle {
+      [dir="ltr"] .toolbar {
         left: auto;
         right: 20px;
       }
 
-      .lang-btn {
+      .lang-btn,
+      .pdf-btn {
         display: flex;
         align-items: center;
         gap: 6px;
         background: var(--surface2);
         border: 1px solid var(--border);
-        color: var(--gold);
         font-family: var(--mono);
         font-size: 0.78rem;
         font-weight: 600;
@@ -92,6 +94,9 @@
           transform 0.15s;
         letter-spacing: 0.03em;
       }
+      .lang-btn {
+        color: var(--gold);
+      }
       .lang-btn:hover {
         background: var(--border);
         border-color: var(--gold-dim);
@@ -103,6 +108,16 @@
         border-radius: 50%;
         background: var(--green);
         display: inline-block;
+      }
+
+      .pdf-btn {
+        color: var(--text);
+      }
+      .pdf-btn:hover {
+        background: var(--border);
+        border-color: var(--gold-dim);
+        transform: scale(1.04);
+        color: var(--gold);
       }
 
       /* ── HEADER ── */
@@ -481,7 +496,7 @@
           background: #fff;
           color: #000;
         }
-        .lang-toggle {
+        .toolbar {
           display: none;
         }
         .shell {
@@ -510,11 +525,15 @@
     </style>
   </head>
   <body>
-    <!-- Language Toggle -->
-    <div class="lang-toggle">
+    <!-- Toolbar: Language + PDF export -->
+    <div class="toolbar">
       <button class="lang-btn" onclick="toggleLang()" id="langBtn">
         <span class="dot"></span>
         <span id="langLabel">English</span>
+      </button>
+      <button class="pdf-btn" onclick="exportPDF()" id="pdfBtn">
+        <span>📄</span>
+        <span id="pdfLabel">PDF</span>
       </button>
     </div>
 
@@ -604,6 +623,10 @@
 
         // Lang button
         document.getElementById("langLabel").textContent = d.toggleLabel;
+
+        // PDF button label
+        document.getElementById("pdfLabel").textContent =
+          lang === "fa" ? "دانلود PDF" : "Download PDF";
 
         // Hero
         document.getElementById("eyebrow").textContent =
@@ -722,6 +745,10 @@
 
       function toggleLang() {
         render(currentLang === "fa" ? "en" : "fa");
+      }
+
+      function exportPDF() {
+        window.print();
       }
 
       // ── Fallback data (mirrors data.json, used when fetch is unavailable) ──
