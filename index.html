@@ -1,266 +1,872 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>رزومه فرهاد دژمی‌فرد - توسعه‌دهنده Node.js</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Farhad Dezhmifard — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap");
+      /* ── TOKENS ── */
+      :root {
+        --bg: #0d1117;
+        --surface: #161b22;
+        --surface2: #1c2333;
+        --border: #30363d;
+        --gold: #e6a817;
+        --gold-dim: #9a6f10;
+        --text: #e6edf3;
+        --muted: #8b949e;
+        --faint: #3d444d;
+        --green: #3fb950;
+        --mono: "JetBrains Mono", monospace;
+        --sans-fa: "Vazirmatn", sans-serif;
+        --sans-en: "Inter", sans-serif;
+        --radius: 12px;
+        --radius-sm: 6px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        font-family: "Vazirmatn", sans-serif;
-        background-color: #f7f9fb;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans-fa);
+        font-size: 15px;
+        line-height: 1.75;
+        min-height: 100vh;
       }
-      .section-title {
+      body.en {
+        font-family: var(--sans-en);
+      }
+
+      /* ── LAYOUT ── */
+      .shell {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      /* ── LANG TOGGLE ── */
+      .lang-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+      [dir="ltr"] .lang-toggle {
+        left: auto;
+        right: 20px;
+      }
+
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--gold);
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 7px 14px;
+        border-radius: 99px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          transform 0.15s;
+        letter-spacing: 0.03em;
+      }
+      .lang-btn:hover {
+        background: var(--border);
+        border-color: var(--gold-dim);
+        transform: scale(1.04);
+      }
+      .lang-btn .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        display: inline-block;
+      }
+
+      /* ── HEADER ── */
+      .hero {
+        padding: 60px 0 48px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 48px;
+      }
+      .hero-eyebrow {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--gold);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        opacity: 0;
+        animation: fadeUp 0.5s 0.1s forwards;
+      }
+      .hero-name {
+        font-size: clamp(2.4rem, 6vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        opacity: 0;
+        animation: fadeUp 0.5s 0.2s forwards;
+      }
+      .hero-name span {
+        color: var(--gold);
+      }
+      .hero-title {
+        font-size: 1.05rem;
+        font-weight: 400;
+        color: var(--muted);
+        margin-top: 10px;
+        opacity: 0;
+        animation: fadeUp 0.5s 0.3s forwards;
+      }
+      .hero-contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        margin-top: 28px;
+        opacity: 0;
+        animation: fadeUp 0.5s 0.4s forwards;
+      }
+      .contact-chip {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 5px 12px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .contact-chip a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .contact-chip:hover {
+        color: var(--gold);
+        border-color: var(--gold-dim);
+      }
+      .contact-chip .icon {
+        font-size: 0.9rem;
+      }
+
+      /* ── SECTION ── */
+      .section {
+        margin-bottom: 52px;
+        opacity: 0;
+        animation: fadeUp 0.5s forwards;
+      }
+      .section:nth-of-type(1) {
+        animation-delay: 0.45s;
+      }
+      .section:nth-of-type(2) {
+        animation-delay: 0.55s;
+      }
+      .section:nth-of-type(3) {
+        animation-delay: 0.65s;
+      }
+      .section:nth-of-type(4) {
+        animation-delay: 0.75s;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .section-label {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        background: rgba(230, 168, 23, 0.08);
+        border: 1px solid var(--gold-dim);
+        border-radius: 4px;
+        padding: 2px 8px;
+        white-space: nowrap;
+      }
+      .section-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── SUMMARY ── */
+      .summary-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 28px;
+        color: var(--muted);
+        line-height: 1.9;
         position: relative;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-        color: #1f2937; /* Dark Gray */
+        overflow: hidden;
       }
-      .section-title::after {
+      .summary-card::before {
         content: "";
         position: absolute;
-        right: 0;
+        inset-inline-start: 0;
+        top: 0;
         bottom: 0;
-        height: 3px;
-        width: 50px;
-        background-color: #3b82f6; /* Blue 500 */
-        border-radius: 9999px;
+        width: 3px;
+        background: linear-gradient(to bottom, var(--gold), transparent);
+        border-radius: 2px;
       }
-      .job-title {
+      [dir="ltr"] .summary-card::before {
+        left: 0;
+        right: auto;
+      }
+      [dir="rtl"] .summary-card::before {
+        right: 0;
+        left: auto;
+      }
+
+      /* ── EXPERIENCE / EDUCATION ── */
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .timeline-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 22px 26px;
+        position: relative;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .timeline-item:hover {
+        border-color: var(--gold-dim);
+        box-shadow:
+          0 0 0 1px var(--gold-dim),
+          0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .item-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .item-role {
+        font-size: 1.05rem;
         font-weight: 700;
-        color: #111827;
+        color: var(--text);
       }
-      .date {
-        color: #6b7280;
-        font-size: 0.875rem;
+      .item-period {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--gold);
+        background: rgba(230, 168, 23, 0.08);
+        border: 1px solid var(--gold-dim);
+        border-radius: 99px;
+        padding: 3px 12px;
+        white-space: nowrap;
       }
-      .skill-item {
-        background-color: #e5e7eb;
-        color: #374151;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.5rem;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
+      .item-sub {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-bottom: 14px;
       }
-      .skill-item:hover {
-        background-color: #d1d5db;
+      .item-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
       }
-      .summary-box {
-        background-color: #ffffff;
-        border-right: 5px solid #3b82f6; /* Blue border for emphasis */
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -2px rgba(0, 0, 0, 0.06);
-        border-radius: 0.75rem;
+      .item-bullets li {
+        display: flex;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
       }
-      /* Style for printing (converting to PDF) */
+      .item-bullets li::before {
+        content: "▸";
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      /* ── PROJECTS ── */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .project-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .project-card:hover {
+        border-color: var(--gold-dim);
+        box-shadow:
+          0 0 0 1px var(--gold-dim),
+          0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+      .project-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .project-desc {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.7;
+        flex: 1;
+      }
+      .project-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .project-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .project-link {
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--gold);
+        text-decoration: none;
+        border: 1px solid var(--gold-dim);
+        border-radius: 99px;
+        padding: 2px 12px;
+        transition: background 0.2s;
+      }
+      .project-link:hover {
+        background: rgba(230, 168, 23, 0.1);
+      }
+      @media (max-width: 600px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ── SKILLS ── */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .skill-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px 20px;
+        transition: border-color 0.2s;
+      }
+      .skill-card:hover {
+        border-color: var(--gold-dim);
+      }
+      .skill-card.wide {
+        grid-column: 1 / -1;
+      }
+      .skill-card-title {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+      .tag {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        background: var(--surface2);
+        color: var(--text);
+        border: 1px solid var(--faint);
+        border-radius: var(--radius-sm);
+        padding: 3px 10px;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          color 0.2s;
+        cursor: default;
+      }
+      .tag:hover {
+        background: rgba(230, 168, 23, 0.1);
+        border-color: var(--gold-dim);
+        color: var(--gold);
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        color: var(--faint);
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        .skill-card.wide {
+          grid-column: 1;
+        }
+        .hero-name {
+          font-size: 2.2rem;
+        }
+        .item-top {
+          flex-direction: column;
+        }
+      }
+
+      /* ── PRINT ── */
       @media print {
         body {
-          background-color: #fff;
+          background: #fff;
+          color: #000;
         }
-        .container {
-          box-shadow: none;
-          max-width: none;
+        .lang-toggle {
+          display: none;
         }
-        .summary-box {
+        .shell {
+          padding: 0;
+        }
+        .timeline-item,
+        .summary-card,
+        .skill-card {
+          background: #f9f9f9;
+          border-color: #ddd;
           box-shadow: none;
-          border-right: 3px solid #3b82f6;
-          padding: 1rem 0 1rem 1rem; /* Adjust padding for print */
-          border-radius: 0;
+        }
+        .hero-eyebrow,
+        .section-label {
+          color: #c8860e;
+        }
+        .hero-name span {
+          color: #c8860e;
+        }
+        .item-period {
+          color: #c8860e;
+          background: #fff8e7;
+          border-color: #c8860e;
         }
       }
     </style>
   </head>
-  <body class="p-4 sm:p-8">
-    <div
-      class="container mx-auto max-w-4xl bg-white p-6 sm:p-10 rounded-xl shadow-2xl"
-    >
-      <!-- Header / Contact Info -->
-      <header class="mb-8 border-b pb-4">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-1">
-          فرهاد دژمی‌فرد
-        </h1>
-        <p class="text-lg text-gray-600 mb-4">
-          مهندس نرم‌افزار (متخصص Node.js)
-        </p>
-        <div class="flex flex-wrap text-sm text-gray-600 gap-y-1 sm:gap-x-8">
-          <span><i class="fas fa-map-marker-alt"></i> تهران، امیریه</span>
-          <span><i class="fas fa-envelope"></i> Farddezh@gmail.com</span>
-          <span><i class="fas fa-phone"></i>۰۹۹۰۹۰۱۱۴۹۱</span>
-          <span><i class="fas fa-phone"></i>۰۹۰۱۶۶۰۰۵۳۸</span>
-        </div>
+  <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+      <button class="lang-btn" onclick="toggleLang()" id="langBtn">
+        <span class="dot"></span>
+        <span id="langLabel">English</span>
+      </button>
+    </div>
+
+    <div class="shell">
+      <!-- HERO -->
+      <header class="hero" id="hero">
+        <div class="hero-eyebrow" id="eyebrow"></div>
+        <h1 class="hero-name" id="heroName"></h1>
+        <p class="hero-title" id="heroTitle"></p>
+        <div class="hero-contact" id="heroContact"></div>
       </header>
 
-      <!-- Professional Summary -->
-      <section class="mb-8">
-        <h2 class="section-title text-2xl">خلاصه توانمندی‌های حرفه‌ای</h2>
-        <div class="summary-box">
-          <p class="text-gray-700 leading-relaxed text-justify">
-توسعه دهنده خود آموخته در زمینه برنامه نویسی بک‌اند‍‍‍‍‍. تجربه کار با دیتابیس‌هایی مانند SqlServer ،Postgres و Mongo. آشنایی با Docker و همینطور سیستم‌عامل لینوکس. دائما در حال یادگیری!
-
-برخلاف تجربه کاری در زمینه .NET، مایل به اشتغال و یا کارآموزی به عنوان برنامه نویس بک اند در زبان‌های دیگر از جمله Node.JS، Python و یا ‌Go هستم.          </p>
+      <!-- SUMMARY -->
+      <section class="section" id="sectionSummary">
+        <div class="section-header">
+          <span class="section-label" id="labelSummary"></span>
+          <div class="section-line"></div>
+        </div>
+        <div class="summary-card">
+          <p id="summaryText"></p>
         </div>
       </section>
 
-      <!-- Work Experience -->
-      <section class="mb-8">
-        <h2 class="section-title text-2xl">سوابق شغلی</h2>
-        <div class="space-y-4 pr-3 border-r-2 border-gray-200">
-          <div class="relative pl-6">
-            <h3 class="job-title text-xl text-blue-700">
-              توسعه‌دهنده Back-End
-            </h3>
-            <p class="text-lg font-medium text-gray-800">ViraProcess، تهران</p>
-            <p class="date">تیر ۱۴۰۰ تا خرداد ۱۴۰۱ (July 2021 – June 2022)</p>
-            <ul class="list-disc pr-6 mt-2 text-gray-700 space-y-1">
-              <li>
-                توسعه و نگهداری نرم‌افزار فروشگاهی ساخته شده با فریم‌ورک
-                ASP.NET.
-              </li>
-              <li>
-                پیاده‌سازی راه‌حل‌های خودکار وب اسکرپینگ برای جمع‌آوری داده‌های
-                ضروری با استفاده از Python، Node.js و Selenium.
-              </li>
-              <li>
-                همکاری در بخش فرانت‌اند برای طراحی و پیاده‌سازی نیازمندی‌ها با
-                استفاده از Bootstrap.
-              </li>
-            </ul>
-          </div>
+      <!-- EXPERIENCE -->
+      <section class="section" id="sectionExperience">
+        <div class="section-header">
+          <span class="section-label" id="labelExperience"></span>
+          <div class="section-line"></div>
         </div>
+        <div class="timeline" id="experienceList"></div>
       </section>
 
-      <!-- Education -->
-      <section class="mb-8">
-        <h2 class="section-title text-2xl">تحصیلات</h2>
-        <div class="space-y-1 pr-3 border-r-2 border-gray-200">
-          <div class="relative pl-6">
-            <h3 class="job-title text-xl text-blue-700">
-              کارشناسی: مهندسی کامپیوتر (گرایش نرم‌افزار)
-            </h3>
-            <p class="text-lg font-medium text-gray-800">
-              دانشگاه آزاد اسلامی واحد تهران شمال
-            </p>
-            <p class="date">۱۳۹۸ - ۱۴۰۲ (2019 – 2023)</p>
-          </div>
+      <!-- PROJECTS -->
+      <section class="section" id="sectionProjects">
+        <div class="section-header">
+          <span class="section-label" id="labelProjects"></span>
+          <div class="section-line"></div>
         </div>
+        <div class="projects-grid" id="projectsList"></div>
       </section>
 
-      <!-- Skills & Technologies -->
-      <section class="mb-8">
-        <h2 class="section-title text-2xl">مهارت‌ها و فناوری‌ها</h2>
-
-        <!-- Skills Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Back-End -->
-          <div>
-            <h3 class="font-bold text-lg mb-2 text-gray-900">Back-End</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-item">Node.js</span>
-              <span class="skill-item">Express.JS</span>
-              <span class="skill-item">Nest.JS</span>
-              <span class="skill-item">Bun.JS</span>
-              <span class="skill-item">Django</span>
-              <span class="skill-item">FastAPI</span>
-            </div>
-          </div>
-
-          <!-- Languages -->
-          <div>
-            <h3 class="font-bold text-lg mb-2 text-gray-900">
-              زبان‌های برنامه‌نویسی
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-item">JavaScript</span>
-              <span class="skill-item">TypeScript</span>
-              <span class="skill-item">Python</span>
-              <span class="skill-item">C#</span>
-              <span class="skill-item">C</span>
-              <span class="skill-item">Bash</span>
-            </div>
-          </div>
-
-          <!-- Databases -->
-          <div>
-            <h3 class="font-bold text-lg mb-2 text-gray-900">
-              پایگاه‌های داده
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-item">PostgreSQL</span>
-              <span class="skill-item">MongoDB</span>
-            </div>
-          </div>
-
-          <!-- DevOps/Tools -->
-          <div>
-            <h3 class="font-bold text-lg mb-2 text-gray-900">
-              ابزارهای DevOps/CI/CD
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-item">Docker</span>
-              <span class="skill-item">Git</span>
-            </div>
-          </div>
-
-          <!-- Front-End -->
-          <div class="col-span-1 md:col-span-2">
-            <h3 class="font-bold text-lg mb-2 text-gray-900">Front-End</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="skill-item">HTML5</span>
-              <span class="skill-item">CSS</span>
-              <span class="skill-item">TailwindCSS</span>
-              <span class="skill-item">Bootstrap</span>
-              <span class="skill-item">React.JS</span>
-            </div>
-          </div>
+      <!-- EDUCATION -->
+      <section class="section" id="sectionEducation">
+        <div class="section-header">
+          <span class="section-label" id="labelEducation"></span>
+          <div class="section-line"></div>
         </div>
+        <div class="timeline" id="educationList"></div>
       </section>
 
-      <!-- Open Source Projects -->
-      <!-- <section class="mb-0">
-        <h2 class="section-title text-2xl">پروژه‌های متن باز</h2>
-        <div class="pr-3">
-          <p class="job-title text-xl text-blue-700">ربات تلگرام Pic2Pdf</p>
-          <p class="text-gray-700 mt-1">
-            ربات ساده تلگرام که تصاویر را به pdf تبدیل میکند. توسعه داده شده
-            توسط فریمورک Nest.JS.
-          </p>
-          <a
-            href="https://github.com/fardezh/pic2pdf-bot"
-            target="_blank"
-            class="text-blue-500 hover:text-blue-600 transition duration-300 text-sm"
-            >لینک گیت‌هاب پروژه</a
-          >
+      <!-- SKILLS -->
+      <section class="section" id="sectionSkills">
+        <div class="section-header">
+          <span class="section-label" id="labelSkills"></span>
+          <div class="section-line"></div>
         </div>
-      </section> -->
+        <div class="skills-grid" id="skillsGrid"></div>
+      </section>
 
-      <!-- Font Awesome for Icons (Self-Correction for print/PDF) -->
-      <script
-        src="https://kit.fontawesome.com/a076d05399.js"
-        crossorigin="anonymous"
-      ></script>
-      <script>
-        // Fallback for icons if Font Awesome is not loaded
-        document.addEventListener("DOMContentLoaded", () => {
-          const iconMap = {
-            "map-marker-alt": "📍",
-            envelope: "✉️",
-            phone: "📞",
-          };
-          document.querySelectorAll(".flex.text-sm i").forEach((icon) => {
-            const iconClass = icon.className
-              .split(" ")
-              .find((cls) => cls.startsWith("fa-"))
-              .replace("fa-", "");
-            if (iconMap[iconClass]) {
-              icon.outerHTML = iconMap[iconClass] + " ";
-            }
-          });
-        });
-      </script>
+      <footer class="footer" id="footerText"></footer>
     </div>
+
+    <script>
+      // ── Load data.json then render ──
+      let DATA = null;
+      let currentLang = "fa";
+
+      async function loadData() {
+        try {
+          const res = await fetch("data.json");
+          DATA = await res.json();
+        } catch (e) {
+          // Fallback inline data if fetch fails (e.g. file:// protocol)
+          DATA = FALLBACK_DATA;
+        }
+        render(currentLang);
+      }
+
+      function render(lang) {
+        const d = DATA[lang];
+        currentLang = lang;
+
+        // html dir + lang
+        document.documentElement.lang = d.lang;
+        document.documentElement.dir = d.dir;
+        document.body.classList.toggle("en", lang === "en");
+
+        // Lang button
+        document.getElementById("langLabel").textContent = d.toggleLabel;
+
+        // Hero
+        document.getElementById("eyebrow").textContent =
+          lang === "fa" ? "< مهندس نرم‌افزار />" : "< software engineer />";
+        document.getElementById("heroName").innerHTML =
+          lang === "fa"
+            ? "فرهاد <span>دژمی‌فرد</span>"
+            : "Farhad <span>Dezhmifard</span>";
+        document.getElementById("heroTitle").textContent = d.title;
+
+        // Contact chips
+        const contact = d.contact;
+        const chips = [
+          { icon: "📍", text: contact.location },
+          { icon: "✉️", text: contact.email, href: `mailto:${contact.email}` },
+          ...contact.phones.map((p) => ({ icon: "📞", text: p })),
+        ];
+        document.getElementById("heroContact").innerHTML = chips
+          .map(
+            (c) =>
+              `<div class="contact-chip">
+          <span class="icon">${c.icon}</span>
+          ${c.href ? `<a href="${c.href}">${c.text}</a>` : `<span>${c.text}</span>`}
+        </div>`,
+          )
+          .join("");
+
+        // Sections labels
+        document.getElementById("labelSummary").textContent =
+          d.sections.summary;
+        document.getElementById("labelExperience").textContent =
+          d.sections.experience;
+        document.getElementById("labelEducation").textContent =
+          d.sections.education;
+        document.getElementById("labelSkills").textContent = d.sections.skills;
+
+        // Summary
+        document.getElementById("summaryText").textContent = d.summary;
+
+        // Experience
+        document.getElementById("experienceList").innerHTML = d.experience
+          .map(
+            (job) => `
+        <div class="timeline-item">
+          <div class="item-top">
+            <span class="item-role">${job.role}</span>
+            <span class="item-period">${job.period}${job.periodEn ? " · " + job.periodEn : ""}</span>
+          </div>
+          <div class="item-sub">${job.company}${job.location ? " — " + job.location : ""}</div>
+          <ul class="item-bullets">
+            ${job.bullets.map((b) => `<li>${b}</li>`).join("")}
+          </ul>
+        </div>
+      `,
+          )
+          .join("");
+
+        // Projects
+        document.getElementById("labelProjects").textContent =
+          d.sections.projects;
+
+        document.getElementById("projectsList").innerHTML = (d.projects || [])
+          .map(
+            (p) => `
+  <div class="project-card">
+    <div class="project-name">${p.name}</div>
+    <div class="project-desc">${p.description}</div>
+    <div class="project-stack">
+      ${p.stack.map((t) => `<span class="tag">${t}</span>`).join("")}
+    </div>
+    <div class="project-links">
+      ${p.links.map((l) => `<a class="project-link" href="${l.url}" target="_blank">${l.label} ↗</a>`).join("")}
+    </div>
+  </div>
+`,
+          )
+          .join("");
+
+        // Education
+        document.getElementById("educationList").innerHTML = d.education
+          .map(
+            (edu) => `
+        <div class="timeline-item">
+          <div class="item-top">
+            <span class="item-role">${edu.degree}</span>
+            <span class="item-period">${edu.period}${edu.periodEn ? " · " + edu.periodEn : ""}</span>
+          </div>
+          <div class="item-sub">${edu.institution}</div>
+        </div>
+      `,
+          )
+          .join("");
+
+        // Skills
+        const skillEntries = Object.entries(d.skills);
+        document.getElementById("skillsGrid").innerHTML = skillEntries
+          .map(([cat, tags], i) => {
+            const isLast = i === skillEntries.length - 1;
+            const isOdd = skillEntries.length % 2 !== 0;
+            const wide = isLast && isOdd ? "wide" : "";
+            return `
+          <div class="skill-card ${wide}">
+            <div class="skill-card-title">${cat}</div>
+            <div class="tags">${tags.map((t) => `<span class="tag">${t}</span>`).join("")}</div>
+          </div>
+        `;
+          })
+          .join("");
+
+        // Footer
+        document.getElementById("footerText").textContent =
+          lang === "fa"
+            ? `© ${new Date().getFullYear()} فرهاد دژمی‌فرد — ساخته‌شده با HTML + CSS + JS`
+            : `© ${new Date().getFullYear()} Farhad Dezhmifard — Built with HTML + CSS + JS`;
+      }
+
+      function toggleLang() {
+        render(currentLang === "fa" ? "en" : "fa");
+      }
+
+      // ── Fallback data (mirrors data.json, used when fetch is unavailable) ──
+      const FALLBACK_DATA = {
+        fa: {
+          lang: "fa",
+          dir: "rtl",
+          name: "فرهاد دژمی‌فرد",
+          title: "مهندس نرم‌افزار — متخصص Node.js",
+          toggleLabel: "English",
+          contact: {
+            location: "تهران، امیریه",
+            email: "Farddezh@gmail.com",
+            phones: ["۰۹۹۰۹۰۱۱۴۹۱", "۰۹۰۱۶۶۰۰۵۳۸"],
+          },
+          summary:
+            "توسعه‌دهنده خودآموخته بک‌اند با تجربه کار بر روی سیستم‌های واقعی. مسلط به Node.js، Python و اکوسیستم پایگاه‌های داده مختلف. همیشه در حال یادگیری — و همیشه آماده چالش بعدی. برخلاف تجربه کاری در زمینه .NET، مایل به اشتغال و کارآموزی به عنوان برنامه‌نویس بک‌اند در Node.JS، Python و یا Go هستم.",
+          sections: {
+            summary: "خلاصه توانمندی‌های حرفه‌ای",
+            experience: "سوابق شغلی",
+            education: "تحصیلات",
+            skills: "مهارت‌ها و فناوری‌ها",
+          },
+          experience: [
+            {
+              role: "توسعه‌دهنده Back-End",
+              company: "ViraProcess",
+              location: "تهران",
+              period: "تیر ۱۴۰۰ تا خرداد ۱۴۰۱",
+              periodEn: "July 2021 – June 2022",
+              bullets: [
+                "توسعه و نگهداری نرم‌افزار فروشگاهی ساخته‌شده با فریم‌ورک ASP.NET.",
+                "پیاده‌سازی راه‌حل‌های خودکار وب اسکرپینگ برای جمع‌آوری داده‌های ضروری با استفاده از Python، Node.js و Selenium.",
+                "همکاری در بخش فرانت‌اند برای طراحی و پیاده‌سازی نیازمندی‌ها با استفاده از Bootstrap.",
+              ],
+            },
+          ],
+          education: [
+            {
+              degree: "کارشناسی: مهندسی کامپیوتر (گرایش نرم‌افزار)",
+              institution: "دانشگاه آزاد اسلامی واحد تهران شمال",
+              period: "۱۳۹۸ – ۱۴۰۲",
+              periodEn: "2019 – 2023",
+            },
+          ],
+          skills: {
+            "Back-End": [
+              "Node.js",
+              "Express.js",
+              "Nest.js",
+              "Bun.js",
+              "Django",
+              "FastAPI",
+            ],
+            "زبان‌های برنامه‌نویسی": [
+              "JavaScript",
+              "TypeScript",
+              "Python",
+              "C#",
+              "C",
+              "Bash",
+            ],
+            "پایگاه‌های داده": ["PostgreSQL", "MongoDB", "SQL Server"],
+            "DevOps / ابزارها": ["Docker", "Git", "Linux"],
+            "Front-End": [
+              "HTML5",
+              "CSS3",
+              "TailwindCSS",
+              "Bootstrap",
+              "React.js",
+            ],
+          },
+        },
+        en: {
+          lang: "en",
+          dir: "ltr",
+          name: "Farhad Dezhmifard",
+          title: "Software Engineer — Node.js Specialist",
+          toggleLabel: "فارسی",
+          contact: {
+            location: "Tehran, Amirieh",
+            email: "Farddezh@gmail.com",
+            phones: ["(+98) 990-901-1491", "(+98) 901-660-0538"],
+          },
+          summary:
+            "Self-taught backend developer with hands-on experience building real-world systems. Proficient in Node.js, Python, and various database ecosystems. Always learning — always ready for the next challenge. Despite my professional background in .NET, I'm open to backend roles or internships in Node.js, Python, or Go.",
+          sections: {
+            summary: "Professional Summary",
+            experience: "Work Experience",
+            education: "Education",
+            skills: "Skills & Technologies",
+          },
+          experience: [
+            {
+              role: "Back-End Developer",
+              company: "ViraProcess",
+              location: "Tehran",
+              period: "July 2021 – June 2022",
+              periodEn: "",
+              bullets: [
+                "Developed and maintained a retail management system built with the ASP.NET framework.",
+                "Implemented automated web scraping solutions to collect critical data using Python, Node.js, and Selenium.",
+                "Collaborated on frontend tasks to design and implement UI requirements using Bootstrap.",
+              ],
+            },
+          ],
+          education: [
+            {
+              degree: "B.Sc. in Computer Engineering (Software)",
+              institution: "Islamic Azad University, North Tehran Branch",
+              period: "2019 – 2023",
+              periodEn: "",
+            },
+          ],
+          skills: {
+            "Back-End": [
+              "Node.js",
+              "Express.js",
+              "Nest.js",
+              "Bun.js",
+              "Django",
+              "FastAPI",
+            ],
+            "Programming Languages": [
+              "JavaScript",
+              "TypeScript",
+              "Python",
+              "C#",
+              "C",
+              "Bash",
+            ],
+            Databases: ["PostgreSQL", "MongoDB", "SQL Server"],
+            "DevOps / Tools": ["Docker", "Git", "Linux"],
+            "Front-End": [
+              "HTML5",
+              "CSS3",
+              "TailwindCSS",
+              "Bootstrap",
+              "React.js",
+            ],
+          },
+        },
+      };
+
+      loadData();
+    </script>
   </body>
 </html>

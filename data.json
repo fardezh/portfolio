@@ -1,0 +1,221 @@
+{
+  "fa": {
+    "lang": "fa",
+    "dir": "rtl",
+    "name": "فرهاد دژمی‌فرد",
+    "title": "مهندس نرم‌افزار — متخصص Node.js",
+    "contact": {
+      "location": "تهران، امیریه",
+      "email": "Farddezh@gmail.com",
+      "phones": ["۰۹۹۰۹۰۱۱۴۹۱"]
+    },
+    "summary": "توسعه‌دهنده بک‌اند خودآموخته با تجربه کار در محیط‌های حرفه‌ای. سابقه توسعه سیستم‌های تولیدی با Node.js، Python و .NET را دارم و در زمینه‌هایی از جمله طراحی نرم‌افزار فروشگاهی و پیاده‌سازی راه‌حل‌های خودکار جمع‌آوری داده فعالیت کرده‌ام. تمرکز اصلی‌ام بر توسعه بک‌اند با Node.js است و با ابزارهایی نظیر Express، Nest.js، PostgreSQL، MongoDB و Docker آشنایی کامل دارم. در کنار آن، به‌صورت جدی در حال یادگیری زبان‌های جدیدی مانند Go, Rust و ... هستم و به دنبال فرصتی هستم که بتوانم از همان ابتدا مشارکت مؤثری داشته باشم و در بستر یک تیم حرفه‌ای به رشد خود ادامه دهم.",
+    "sections": {
+      "experience": "سوابق شغلی",
+      "education": "تحصیلات",
+      "skills": "مهارت‌ها و فناوری‌ها",
+      "summary": "خلاصه توانمندی‌های حرفه‌ای",
+      "projects": "پروژه‌ها"
+    },
+    "experience": [
+      {
+        "role": "توسعه دهنده Node.js",
+        "company": "Baduno",
+        "location": "تهران",
+        "period": "آذر ۱۴۰۴ تا بهمن ۱۴۰۴",
+        "bullets": [
+          "نگهداری و توسعه کدهای قدیمی (Legacy) برنامه‌ها.",
+          "توسعه و نگهداری ابزارهای استخراج داده از وب (Web Scrapers).",
+          "توسعه و نگهداری ماژول‌های پویا (Dynamic Modules) جهت یکپارچه‌سازی بی‌نقص در مخازن کد (Repositories) مختلف، با هدف ایجاد سرویس‌های بک‌اند بسیار ماژولار، با قابلیت استفاده مجدد و پیکربندی آسان."
+        ]
+      },
+      {
+        "role": "توسعه دهنده‌ی وب (فریلنسری)",
+        "company": "",
+        "location": "",
+        "period": "۱۴۰۲ تا ۱۴۰۴",
+        "bullets": [
+          "طراحی و پیاده‌سازی راهکارهای خودکارسازی استخراج داده از وب با استفاده از Python، Node.js و Selenium.",
+          "توسعه و نگهداری پلتفرم‌های اختصاصی CRM با بهره‌گیری از فریم‌ورک Nest.JS و معماری MVC.",
+          "تسلط سریع بر تکنولوژی‌های جدید (Tech Stacks) و به‌کارگیری آن‌ها بر اساس نیازهای پروژه، همراه با حفظ کیفیت بالای کد و رعایت اصول SOLID در تمامی خروجی‌ها."
+        ]
+      },
+      {
+        "role": "توسعه دهنده ASP.NET",
+        "company": "ViraProcess",
+        "location": "تهران",
+        "period": "تیر ۱۴۰۰ تا خرداد ۱۴۰۱",
+        "bullets": [
+          "توسعه و نگهداری نرم‌افزار فروشگاهی ساخته‌شده با فریم‌ورک ASP.NET.",
+          "پیاده‌سازی راه‌حل‌های خودکار وب اسکرپینگ برای جمع‌آوری داده‌های ضروری با استفاده از Python، Node.js و Selenium.",
+          "همکاری در بخش فرانت‌اند برای طراحی و پیاده‌سازی نیازمندی‌ها با استفاده از Bootstrap."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "کارشناسی: مهندسی کامپیوتر (گرایش نرم‌افزار)",
+        "institution": "دانشگاه آزاد اسلامی واحد تهران شمال",
+        "period": "۱۳۹۸ – ۱۴۰۲",
+        "periodEn": "2019 – 2023"
+      }
+    ],
+    "skills": {
+      "Back-End": [
+        "Node.js",
+        "Express.js",
+        "Nest.js",
+        "Bun.js",
+        "Django",
+        "FastAPI",
+        "ASP.NET"
+      ],
+      "زبان‌های برنامه‌نویسی": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "C#",
+        "C",
+        "Bash"
+      ],
+      "پایگاه‌های داده": ["PostgreSQL", "MongoDB", "SQL Server"],
+      "DevOps / ابزارها": ["Docker", "Git", "Linux"],
+      "Front-End": [
+        "HTML5",
+        "CSS3",
+        "TailwindCSS",
+        "Bootstrap",
+        "React.js",
+        "Next.js"
+      ]
+    },
+    "projects": [
+      {
+        "name": "Proxy Caching",
+        "description": "یک پروکسی کشینگ HTTP سبک که با تایپ‌اسکریپت نوشته شده است.",
+        "stack": ["TypeScript"],
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/fardezh/caching-proxy"
+          }
+        ]
+      },
+      {
+        "name": "Pic2Pdf Telegram Bot",
+        "description": "ربات تلگرامی که تصاویر را به PDF تبدیل می‌کند. توسعه‌یافته با Nest.js.",
+        "stack": ["Nest.js", "TypeScript", "Telegram API"],
+        "links": [
+          { "label": "GitHub", "url": "https://github.com/fardezh/pic2pdf-bot" }
+        ]
+      }
+    ],
+    "toggleLabel": "English"
+  },
+  "en": {
+    "lang": "en",
+    "dir": "ltr",
+    "name": "Farhad Dezhmifard",
+    "title": "Software Engineer — Node.js Specialist",
+    "contact": {
+      "location": "Tehran, Amirieh",
+      "email": "Farddezh@gmail.com",
+      "phones": ["(+98) 990-901-1491"]
+    },
+    "summary": "Self-taught backend developer with experience in professional environments. I have a track record of building production systems using Node.js, Python, and .NET — ranging from retail software development to implementing automated data collection pipelines. My primary focus is backend development with Node.js, and I am well-versed in tools such as Express, Nest.js, PostgreSQL, MongoDB, and Docker. Alongside that, I am actively expanding my skill set into new languages such as Go, Rust, and beyond. I am seeking an opportunity where I can contribute meaningfully from day one and continue to grow within a professional team.",
+    "sections": {
+      "experience": "Work Experience",
+      "education": "Education",
+      "skills": "Skills & Technologies",
+      "summary": "Professional Summary",
+      "projects": "Projects"
+    },
+    "experience": [
+      {
+        "role": "Node.js Developer",
+        "company": "Baduno",
+        "location": "Tehran",
+        "period": "Dec, 2025 – Feb, 2026",
+        "bullets": [
+          "Maintained and developed legacy application codebases.",
+          "Developed and maintained web scraping tools.",
+          "Developed and maintained Dynamic Modules designed for seamless integration across multiple repositories, enabling highly reusable and configurable backend services."
+        ]
+      },
+      {
+        "role": "Web Developer (freelance)",
+        "company": "",
+        "location": "",
+        "period": "2022 – 2025",
+        "bullets": [
+          "Engineered automated web scraping solutions using Python, Node.js, and Selenium.",
+          "Developed and maintained custom CRM platforms leveraging the Nest.JS framework and MVC architecture.",
+          "Mastered and deployed new technology stacks rapidly based on specific project requirements, maintaining high code quality and SOLID principles across all deliverables."
+        ]
+      },
+      {
+        "role": "ASP.NET Developer",
+        "company": "ViraProcess",
+        "location": "Tehran",
+        "period": "July 2021 – June 2022",
+        "bullets": [
+          "Developed and maintained an e-commerce application built with the ASP.NET framework.",
+          "Implemented automated web scraping solutions to gather essential data using Python, Node.js, and Selenium.",
+          "Collaborated on front-end development to design and implement requirements using Bootstrap."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. in Computer Engineering (Software)",
+        "institution": "Islamic Azad University, North Tehran Branch",
+        "period": "2019 – 2023",
+        "periodEn": ""
+      }
+    ],
+    "skills": {
+      "Back-End": [
+        "Node.js",
+        "Express.js",
+        "Nest.js",
+        "Bun.js",
+        "Django",
+        "FastAPI",
+        "ASP.NET"
+      ],
+      "Programming Languages": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "C#",
+        "C",
+        "Bash"
+      ],
+      "Databases": ["PostgreSQL", "MongoDB", "SQL Server"],
+      "DevOps / Tools": ["Docker", "Git", "Linux"],
+      "Front-End": ["HTML5", "CSS3", "TailwindCSS", "Bootstrap", "React.js"]
+    },
+    "projects": [
+      {
+        "name": "Proxy Caching",
+        "description": "A lightweight HTTP caching proxy written in TypeScript.",
+        "stack": ["TypeScript"],
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/fardezh/caching-proxy"
+          }
+        ]
+      },
+      {
+        "name": "Pic2Pdf Telegram Bot",
+        "description": "A Telegram bot that converts images into a single PDF. Built with Nest.js and TypeScript.",
+        "stack": ["Nest.js", "TypeScript", "Telegram API"],
+        "links": [
+          { "label": "GitHub", "url": "https://github.com/fardezh/pic2pdf-bot" }
+        ]
+      }
+    ],
+    "toggleLabel": "فارسی"
+  }
+}
