@@ -9,7 +9,7 @@
       "email": "Farddezh@gmail.com",
       "phones": ["۰۹۹۰۹۰۱۱۴۹۱"]
     },
-    "summary": "توسعه‌دهنده بک‌اند خودآموخته با تجربه کار در محیط‌های حرفه‌ای. سابقه توسعه سیستم‌های تولیدی با Node.js، Python و .NET را دارم و در زمینه‌هایی از جمله طراحی نرم‌افزار فروشگاهی و پیاده‌سازی راه‌حل‌های خودکار جمع‌آوری داده فعالیت کرده‌ام. تمرکز اصلی‌ام بر توسعه بک‌اند با Node.js است و با ابزارهایی نظیر Express، Nest.js، PostgreSQL، MongoDB و Docker آشنایی کامل دارم. در کنار آن، به‌صورت جدی در حال یادگیری زبان‌های جدیدی مانند Go, Rust و ... هستم و به دنبال فرصتی هستم که بتوانم از همان ابتدا مشارکت مؤثری داشته باشم و در بستر یک تیم حرفه‌ای به رشد خود ادامه دهم.",
+    "summary": "توسعه‌دهنده بک‌اند با تجربه عملی در پروژه‌های تولیدی، متمرکز بر Node.js (Express، Nest.js) همراه با PostgreSQL، MongoDB و Docker. سابقه کار با Python و .NET و تجربه در طراحی نرم‌افزار فروشگاهی و سیستم‌های خودکار جمع‌آوری داده. علاقه‌مند به یادگیری مستمر فناوری‌های جدید و مشارکت در تیم‌های حرفه‌ای توسعه نرم‌افزار.",
     "sections": {
       "experience": "سوابق شغلی",
       "education": "تحصیلات",
@@ -122,7 +122,7 @@
       "email": "Farddezh@gmail.com",
       "phones": ["(+98) 990-901-1491"]
     },
-    "summary": "Self-taught backend developer with experience in professional environments. I have a track record of building production systems using Node.js, Python, and .NET — ranging from retail software development to implementing automated data collection pipelines. My primary focus is backend development with Node.js, and I am well-versed in tools such as Express, Nest.js, PostgreSQL, MongoDB, and Docker. Alongside that, I am actively expanding my skill set into new languages such as Go, Rust, and beyond. I am seeking an opportunity where I can contribute meaningfully from day one and continue to grow within a professional team.",
+    "summary": "Backend developer specializing in Node.js (Express, Nest.js), PostgreSQL, MongoDB, and Docker, with additional experience in Python and .NET. Background in e-commerce software design and automated data-collection systems.",
     "sections": {
       "experience": "Work Experience",
       "education": "Education",
